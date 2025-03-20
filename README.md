@@ -3,6 +3,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)  
 [![GitHub stars](https://img.shields.io/github/stars/yourusername/hyperliquid-sniper-bot)](https://github.com/tar-ser/Hyperliquid-DEX-Sniper-Bot) 
+
 **🔥 The Ultimate Solution for Automated DEX Trading on Hyperliquid, Uniswap v3, PancakeSwap, and More!**
 
 ---
@@ -21,6 +22,11 @@
 `Automated Crypto Trading`, `DeFi Trading Strategies`, `Cross-DEX Arbitrage`, `Algorithmic Trading`,  
 `Stop-Loss Bot`, `Take-Profit Bot`, `MEV Protection`, `Low-Latency Trading`, `Crypto Market Maker`,  
 `Smart Contract Trading`, `Secure Trading Bot`, `Liquidity Sniping`, `Flash Loan Integration`.
+
+---
+### **Access**
+
+## To get full version DM with me on Telegram: [Telegram](https://t.me/ZeronodeX)
 
 ---
 
