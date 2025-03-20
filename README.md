@@ -2,7 +2,7 @@
 **Automated Crypto Trading Bot for DEX | Algorithmic Sniper | Cross-DEX Arbitrage | Stop-Loss & Take-Profit**
 
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)  
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/hyperliquid-sniper-bot)][(https://github.com/tar-ser/Hyperliquid-DEX-Sniper-Bot)]  
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/hyperliquid-sniper-bot)](https://github.com/tar-ser/Hyperliquid-DEX-Sniper-Bot) 
 **🔥 The Ultimate Solution for Automated DEX Trading on Hyperliquid, Uniswap v3, PancakeSwap, and More!**
 
 ---
