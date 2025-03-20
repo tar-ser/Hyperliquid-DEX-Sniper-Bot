@@ -1,0 +1,171 @@
+{
+  "risk_management": {
+    "position_limits": {
+      "max_position_size_percent": 1.0,
+      "max_position_size_usd": 1000,
+      "daily_loss_limit_percent": 5.0
+    },
+    "stop_loss": {
+      "enabled": true,
+      "stop_loss_percent": 1.5,
+      "dynamic_stop_based_on_volatility": false
+    },
+    "slippage_control": {
+      "max_allowed_slippage_percent": 0.3
+    }
+  },
+
+  "trade_triggers": {
+    "arbitrage": {
+      "enabled": true,
+      "min_spread_percent": 0.5,
+      "min_pool_liquidity_usd": 200000
+    },
+    "sniping": {
+      "enabled": true,
+      "min_order_size_percent": 2.0,
+      "trend_confirmation": {
+        "indicator": "SMA-5",
+        "required_trend_direction": "same" // same/opposite
+      }
+    },
+    "filters": {
+      "min_pool_volume_usd": 100000,
+      "blacklisted_tokens": ["MEME-COIN", "SCAM-TOKEN"]
+    }
+  },
+
+  "order_execution": {
+    "order_type": "limit",
+    "order_ttl_seconds": 2,
+    "gas_priority": {
+      "gas_multiplier": 1.5,
+      "max_gas_price_gwei": 50
+    },
+    "collision_control": {
+      "max_orders_per_minute": 12
+    }
+  },
+
+  "dex_configuration": {
+    "selected_dexes": ["Hyperliquid", "Uniswap v3"],
+    "pools": {
+      "ETH/USDC": {
+        "min_liquidity_usd": 500000,
+        "allowed_strategies": ["arbitrage", "sniping"]
+      },
+      "BTC/USDT": {
+        "min_liquidity_usd": 1000000,
+        "allowed_strategies": ["arbitrage"]
+      }
+    }
+  },
+
+  "monitoring": {
+    "alerts": {
+      "profit_loss_notification": {
+        "daily_pnl_threshold_percent": 3.0,
+        "channels": ["telegram", "email"]
+      },
+      "system_health": {
+        "latency_threshold_ms": 100,
+        "connection_retries_before_alert": 3
+      }
+    },
+    "logging": {
+      "save_rejected_trades": true,
+      "log_level": "detailed" // minimal/normal/detailed
+    }
+  },
+
+  "infrastructure": {
+    "rpc_nodes": {
+      "primary": "https://hyperliquid-node.com",
+      "fallback": "https://backup-hyperliquid-node.com"
+    },
+    "execution_mode": {
+      "read_only": false,
+      "manual_confirmation_for_large_trades": true,
+      "large_trade_threshold_usd": 5000
+    }
+  }
+}
+{
+  "strategies": {
+    "enabled_strategies": ["DCA", "Arbitrage", "Sniper", "LimitOrder"],
+    "volatility_adjustment": {
+      "enabled": true,
+      "volatility_period": "24h", // 1h, 4h, 24h
+      "adjustment_rules": {
+        "high_volatility": {
+          "threshold": 15.0, // ATR or standard deviation in %
+          "actions": ["reduce_position_size", "enable_trailing_stop"]
+        },
+        "low_volatility": {
+          "threshold": 5.0,
+          "actions": ["increase_position_size", "disable_stop_loss"]
+        }
+      }
+    }
+  },
+
+  "order_types": {
+    "limit_order": {
+      "price_offset_percent": 0.3 // Indentation from the current price
+    },
+    "market_order": {
+      "max_slippage_percent": 0.5
+    },
+    "stop_orders": {
+      "stop_loss": {
+        "type": "fixed/trailing", 
+        "default_percent": 2.0,
+        "activation_threshold_percent": 1.5 // For a trailing stop
+      },
+      "take_profit": {
+        "type": "fixed/multi-level",
+        "levels": [
+          {"percent": 1.5, "size_percent": 30},
+          {"percent": 3.0, "size_percent": 70}
+        ]
+      }
+    }
+  },
+
+  "advanced_strategies": {
+    "DCA": {
+      "max_layers": 5,
+      "price_step_percent": 2.0,
+      "volume_increase_percent": 20.0,
+      "time_between_layers_min": 15
+    },
+    "Sniper": {
+      "preload_conditions": {
+        "liquidity_increase_threshold": 50.0, // % liquidity growth
+        "whale_wallet_monitoring": ["0x...", "0x..."] 
+      },
+      "execution_delay_ms": 50 
+    },
+    "Arbitrage": {
+      "cross_dex_enabled": true,
+      "min_profit_after_fees_usd": 15.0
+    }
+  },
+
+  "volatility_settings": {
+    "metrics": {
+      "ATR_period": 14,
+      "Bollinger_bands": {
+        "period": 20,
+        "deviation_multiplier": 2.0
+      }
+    },
+    "adaptive_parameters": {
+      "position_size_scaling": {
+        "min_size_percent": 0.5,
+        "max_size_percent": 3.0
+      },
+      "spread_tolerance_multiplier": 1.5 // For arbitration
+    }
+  }
+}
